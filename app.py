@@ -2,6 +2,7 @@ import juego
 import os
 import platform
 
+#limpia la consola
 def limpiar_consola():
     sistema = platform.system()  # Obtiene el nombre del sistema operativo
     
@@ -10,6 +11,7 @@ def limpiar_consola():
     else:
         os.system("clear") 
 
+#juego del ahorcado
 def juego_ahorcado():
 
     limpiar_consola()
@@ -44,7 +46,7 @@ def juego_ahorcado():
             intentos -= 1
             
         limpiar_consola()
-        print(f"Palabra de {len(palabra)} letra")
+        
         if set(palabra) <= letras_adivinadas:
             print("\n¡Felicidades! Has adivinado la palabra:", palabra)
             break

@@ -60,21 +60,30 @@ def juego_ahorcado(palabras):
     else:
         print("\nHas perdido. La palabra era:", palabra)
 
+def ejecutar_menu():
+    """Ejecuta el menú de selección y las acciones correspondientes."""
+    limpiar_consola()
+
+    while True:
+        menu()
+        
+        try:
+            opcion = int(input("\nOpción: "))
+            if opcion == 1:
+                limpiar_consola()
+                juego_ahorcado(lista_palabras)
+            elif opcion == 2:
+                print("\nInstrucciones del juego:")
+                print("Debes adivinar la palabra oculta letra por letra.")
+                print("Tienes 7 intentos para adivinar la palabra correctamente.")
+            elif opcion == 3:
+                print("Gracias por jugar. ¡Hasta pronto!")
+                break
+            else:
+                print("Opción inválida. Por favor, elija una opción válida.")
+        except ValueError:
+            print("Por favor, selecciona una opción válida.")
+        
 if __name__ == "__main__":
     
-    limpiar_consola()
-    
-    menu()
-
-    opcion = int(input("\nOpcion: "))
-
-    if opcion == 1:
-        limpiar_consola()
-        juego_ahorcado(lista_palabras)
-    elif opcion == 2:
-        print("Opcion 2")
-    elif opcion == 3:
-        print("Opcion 3")
-    else:
-        print("Opcion invalida")
-    
+    ejecutar_menu()

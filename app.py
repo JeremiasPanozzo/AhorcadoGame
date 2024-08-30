@@ -4,9 +4,9 @@ import platform
 
 #listado de palabras
 lista_palabras = ['manzana', 'ventana', 'sol', 'luna', 'arbol', 'nube', 'cielo', 'mar',
-    'río', 'montaña', 'ciudad', 'amor', 'fuego', 'agua', 'puerta', 'espejo',
-    'estrella', 'silla', 'libro', 'coche', 'música', 'café', 'fruta', 'lago',
-    'camisa', 'ratón', 'escritorio', 'flor', 'risa', 'piedra', 'tren', 'nieve',
+    'río', 'montaña', 'ciudad', 'amor', 'fuego', 'agua', 'puerta', 'espejo','estrella', 'silla', 'libro', 'coche', "abstruso", "alacridad",   "anacoluto",   "cacofonía",   
+    "cosmogonía", "dilapidar",  "efímero", "epicúreo","escrúpulo","farragoso","galantería",  "hilarante",  "ínfimo",   "melancolía", "nebuloso",   "obnubilado",  "paradoja",    "perentorio",  
+    "quid","truculento", 'camisa', 'ratón', 'escritorio', 'flor', 'risa', 'piedra', 'tren', 'nieve',
     'avión', 'barco', 'pelota', 'plato', 'dibujo', 'solución', 'mesa', 'puente'
 ]
 

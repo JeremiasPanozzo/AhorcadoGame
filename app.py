@@ -2,15 +2,20 @@ import juego
 import os
 import platform
 
+#listado de palabras
+lista_palabras = ['manzana', 'ventana', 'sol', 'luna', 'arbol', 'nube', 'cielo', 'mar',
+    'río', 'montaña', 'ciudad', 'amor', 'fuego', 'agua', 'puerta', 'espejo',
+    'estrella', 'silla', 'libro', 'coche', 'música', 'café', 'fruta', 'lago',
+    'camisa', 'ratón', 'escritorio', 'flor', 'risa', 'piedra', 'tren', 'nieve',
+    'avión', 'barco', 'pelota', 'plato', 'dibujo', 'solución', 'mesa', 'puente'
+]
+
 #limpia la consola
 def limpiar_consola():
-    sistema = platform.system()  # Obtiene el nombre del sistema operativo
     
-    if sistema == "Windows":
-        os.system("cls")  # Comando para limpiar la consola en Windows
-    else:
-        os.system("clear") 
-
+    """Limpia la consola dependiendo del sistema operativo."""
+    comando = "cls" if platform.system() == "Windows" else "clear"
+    os.system(comando)
 
 # Función para mostrar el menú principal
 def menu():
@@ -23,16 +28,9 @@ def menu():
     
     
 #juego del ahorcado
-def juego_ahorcado():
+def juego_ahorcado(palabras):
 
-    lista_palabras = ['manzana', 'ventana', 'sol', 'luna', 'arbol', 'nube', 'cielo', 'mar',
-    'río', 'montaña', 'ciudad', 'amor', 'fuego', 'agua', 'puerta', 'espejo',
-    'estrella', 'silla', 'libro', 'coche', 'música', 'café', 'fruta', 'lago',
-    'camisa', 'ratón', 'escritorio', 'flor', 'risa', 'piedra', 'tren', 'nieve',
-    'avión', 'barco', 'pelota', 'plato', 'dibujo', 'solución', 'mesa', 'puente'
-    ]
-
-    palabra = juego.generar_palabra(lista_palabras)
+    palabra = juego.generar_palabra(palabras)
     letras_adivinadas = set()
     intentos = 7
 
@@ -72,7 +70,7 @@ if __name__ == "__main__":
 
     if opcion == 1:
         limpiar_consola()
-        juego_ahorcado()
+        juego_ahorcado(lista_palabras)
     elif opcion == 2:
         print("Opcion 2")
     elif opcion == 3:

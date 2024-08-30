@@ -19,7 +19,7 @@ def limpiar_consola():
 
 # Función para mostrar el menú principal
 def menu():
-    
+    """Muestra el menú principal del juego."""
     print("!Bienvenido al juego del ahorcado!\n")
     print("Seleccione una opción:\n")
     print("1. Jugar")

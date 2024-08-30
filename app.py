@@ -11,10 +11,19 @@ def limpiar_consola():
     else:
         os.system("clear") 
 
+
+# Función para mostrar el menú principal
+def menu():
+    
+    print("!Bienvenido al juego del ahorcado!\n")
+    print("Seleccione una opción:\n")
+    print("1. Jugar")
+    print("2. Instrucciones")
+    print("3. Salir")
+    
+    
 #juego del ahorcado
 def juego_ahorcado():
-
-    limpiar_consola()
 
     lista_palabras = ['manzana', 'ventana', 'sol', 'luna', 'arbol', 'nube', 'cielo', 'mar',
     'río', 'montaña', 'ciudad', 'amor', 'fuego', 'agua', 'puerta', 'espejo',
@@ -27,7 +36,7 @@ def juego_ahorcado():
     letras_adivinadas = set()
     intentos = 7
 
-    print("¡Bienvenido al juego del ahorcado!",f"\nTienes {intentos} intentos para adivinar la palabra")
+    print("¡Bienvenido al juego del ahorcado!\n",f"\nTienes {intentos} intentos para adivinar la palabra")
     print(f"Palabra de {len(palabra)} letra")
 
     while intentos > 0:
@@ -54,4 +63,20 @@ def juego_ahorcado():
         print("\nHas perdido. La palabra era:", palabra)
 
 if __name__ == "__main__":
-    juego_ahorcado()
+    
+    limpiar_consola()
+    
+    menu()
+
+    opcion = int(input("\nOpcion: "))
+
+    if opcion == 1:
+        limpiar_consola()
+        juego_ahorcado()
+    elif opcion == 2:
+        print("Opcion 2")
+    elif opcion == 3:
+        print("Opcion 3")
+    else:
+        print("Opcion invalida")
+    

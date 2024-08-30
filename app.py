@@ -10,6 +10,10 @@ lista_palabras = ['manzana', 'ventana', 'sol', 'luna', 'arbol', 'nube', 'cielo',
     'avión', 'barco', 'pelota', 'plato', 'dibujo', 'solución', 'mesa', 'puente'
 ]
 
+def pausar():
+    """Función para pausar la ejecución hasta que el usuario presione Enter."""
+    input("\nPresiona Enter para continuar...")
+    
 #limpia la consola
 def limpiar_consola():
     
@@ -29,36 +33,52 @@ def menu():
     
 #juego del ahorcado
 def juego_ahorcado(palabras):
+    
+    """Ejecuta la lógica principal del juego del ahorcado."""
 
     palabra = juego.generar_palabra(palabras)
     letras_adivinadas = set()
+    letras_incorrectas = set()
     intentos = 7
 
-    print("¡Bienvenido al juego del ahorcado!\n",f"\nTienes {intentos} intentos para adivinar la palabra")
-    print(f"Palabra de {len(palabra)} letra")
+    print(f"¡Bienvenido al juego del ahorcado!\nTienes {intentos} intentos para adivinar la palabra de {len(palabra)} letras.")
 
     while intentos > 0:
+        
         print("\n" + juego.mostrar_palabra(palabra, letras_adivinadas))
         juego.imprimir_monigote(intentos)
+        print(f"Letras incorrectas: {', '.join(letras_incorrectas)}")
 
         letra = input("Adivina una letra: ").lower()
-        
+
+        # Validar que sea una letra única
+        if len(letra) != 1 or not letra.isalpha():
+            print("Entrada no válida. Por favor ingresa una sola letra.")
+            pausar()
+            limpiar_consola()
+            continue
+            
         if letra in letras_adivinadas:
-            print("Ya has adivinado esa letra.")
+            print("Ya has adivinado esa letra. Intenta con otra.")
             continue
         
         letras_adivinadas.add(letra)
         
         if letra not in palabra:
             intentos -= 1
-            
-        limpiar_consola()
+            letras_incorrectas.add(letra)
+            print(f"Letra incorrecta. Te quedan {intentos} intentos.")
+            pausar()
         
-        if set(palabra) <= letras_adivinadas:
-            print("\n¡Felicidades! Has adivinado la palabra:", palabra)
+        if set(palabra).issubset(letras_adivinadas):
+            print(f"\n¡Felicidades! Has adivinado la palabra: {palabra}")
             break
+
+        limpiar_consola()
     else:
-        print("\nHas perdido. La palabra era:", palabra)
+        print(f"\nHas perdido. La palabra era: {palabra}")
+
+    pausar()
 
 def ejecutar_menu():
     """Ejecuta el menú de selección y las acciones correspondientes."""
@@ -83,7 +103,7 @@ def ejecutar_menu():
                 print("Opción inválida. Por favor, elija una opción válida.")
         except ValueError:
             print("Por favor, selecciona una opción válida.")
+
         
 if __name__ == "__main__":
-    
     ejecutar_menu()
